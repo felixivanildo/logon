@@ -1,13 +1,13 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider} from 'react-router-dom';
-import PatternFrom from './components/PatternForm/PatternForm';
-
+import React from 'react';
+import FormScreen from './screens/FormScreen';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <PatternFrom/>,
+      element: <FormScreen/>,
        
     },
 

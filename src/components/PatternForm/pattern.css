@@ -33,7 +33,7 @@ h1 {
   font-size: 1em;
   line-height: 1.5em;
 }
-.accordion dd > p {
+.accordion dd > div {
   padding: 1em 2em 1em 2em;
 }
 
@@ -43,9 +43,9 @@ h1 {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 960px;  
   margin: 0 auto;
-  padding: 2em 0 2em 0;
+  /* padding: 2em 0 2em 0; */
 }
 
 .accordionTitle {
@@ -82,10 +82,10 @@ h1 {
 @media all {
   .accordionItemCollapsed {
     max-height: 50em;
-    -moz-transition: max-height 1s;
-    -o-transition: max-height 1s;
-    -webkit-transition: max-height 1s;
-    transition: max-height 1s;
+    -moz-transition: max-height 0.5s;
+    -o-transition: max-height 0.5s;
+    -webkit-transition: max-height .05s;
+    transition: max-height 0.5s;
   }
 }
 @media screen and (min-width: 48em) {
@@ -104,7 +104,7 @@ h1 {
 
 .animateIn {
   -webkit-animation-name: accordionIn;
-  -webkit-animation-duration: 0.65s;
+  -webkit-animation-duration: 0.4s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-timing-function: ease-in-out;
@@ -118,7 +118,7 @@ h1 {
   -moz-animation-fill-mode: both;
   -moz-animation-delay: 0s;
   animation-name: accordionIn;
-  animation-duration: 0.65s;
+  animation-duration: 0.2s;
   animation-iteration-count: 1;
   animation-direction: normal;
   animation-timing-function: ease-in-out;
@@ -142,7 +142,7 @@ h1 {
   -moz-animation-fill-mode: both;
   -moz-animation-delay: 0s;
   animation-name: accordionOut;
-  animation-duration: 0.75s;
+  animation-duration: 0.4s;
   animation-iteration-count: 1;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
