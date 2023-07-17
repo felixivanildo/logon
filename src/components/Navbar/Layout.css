@@ -1,0 +1,15 @@
+@media(max-width: 1200px){
+    .navbutton p{
+        font-size: 0.2rem;
+        background-color: black;
+        color: black;
+    }
+}
+
+.main{
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+
+

@@ -1,0 +1,53 @@
+.component {
+    background-color: black;
+    width: 80vw;
+    height: 20vh;
+    margin: 10% 10% 20%;
+    opacity: 0.8;
+    transition: opacity 0.3s, margin-top 0.3s;
+    border-radius: 50px;
+    position: fixed;
+   
+  }
+
+  .inside{
+    border-radius: 50px;
+
+    width: 90%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.99)), url('../../img/casais.jpg');
+    background-size: cover;
+    background-position: left center;
+  }
+
+  .text {
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+               1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+    font-size: xx-large;
+    font-weight: bolder;
+  }
+  
+  .component.focused {
+    opacity: 1;
+  }
+  
+  .component:hover {
+    opacity: 1;
+    margin-top: 8%;
+  }
+  
+
+  .siteBd {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }

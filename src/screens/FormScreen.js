@@ -1,5 +1,6 @@
 import React from 'react';
 import PatternFrom from '../components/PatternForm/PatternForm';
+import Navbar from '../components/Navbar/Navbar';
 
 function FormScreen() {
 
@@ -7,8 +8,9 @@ function FormScreen() {
     const elem = {"title": "Dados da esposa", "content": "content.tv"}
   
   return (
-    <div>
-        <PatternFrom elements={elements}></PatternFrom>
+    <div className='background'>
+        <Navbar/>
+        <PatternFrom elements={elements}> </PatternFrom>
         <PatternFrom elements={elem}></PatternFrom>
    </div>
   );

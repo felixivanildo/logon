@@ -5,7 +5,7 @@ import "./pattern.css";
 function PatternFrom(elements) {
   const [activeIndex1, setActiveIndex1] = useState(null);
 //   const [activeIndex2, setActiveIndex2] = useState(null);
-    const Props = elements.elements
+    const Props = elements.elements ?? ""
     
 
   
@@ -42,7 +42,7 @@ function PatternFrom(elements) {
                 }`}             
                 onClick={() => toggleAccordion(0)}
               >
-                {Props.title}
+                {Props.title ?? "Sem titulo"}
               </div>
             </dt>
             <dd
@@ -51,7 +51,8 @@ function PatternFrom(elements) {
               }`}
             >
               <div>
-                {Props.content}
+                {Props.content ?? ""}
+                
               </div>
             </dd>
             {/* <dt>
