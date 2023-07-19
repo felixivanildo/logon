@@ -50,9 +50,10 @@ function PatternFrom(elements) {
                 activeIndex1 !==  0 ? "accordionItem" : ""
               }`}
             >
-              <div>
+              <div className="contents" style={{padding: "0px"}}>
+                <div style={{marginTop: "0.1vh", marginBottom: "0.1vh", width: "80%"}}>
                 {Props.content ?? ""}
-                
+                </div>
               </div>
             </dd>
             {/* <dt>

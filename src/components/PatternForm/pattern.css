@@ -90,7 +90,7 @@ h1 {
 }
 @media screen and (min-width: 48em) {
   .accordionItemCollapsed {
-    max-height: 15em;
+    max-height: 40em;
     -moz-transition: max-height 0.5s;
     -o-transition: max-height 0.5s;
     -webkit-transition: max-height 0.5s;
@@ -210,3 +210,30 @@ h1 {
     transform: scale(0.8);
   }
 }
+
+.contents{ 
+  display: flex;
+  padding: 0px;
+  align-items: center;
+  margin-left: 10%;
+  /* width: 100%; */
+}
+
+.contents input{
+  border-radius: 10px;
+  border: none;
+  margin-left: 10px;
+}
+
+
+form div {
+ 
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 5px;
+    margin: 5px;
+
+}
+
+

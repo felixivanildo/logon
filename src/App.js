@@ -4,6 +4,7 @@ import React from 'react';
 import FormScreen from './screens/FormScreen';
 import Landing from './screens/Landingpage';
 import Teste from './components/Test';
+import FormComponent from './components/Formulario';
 
 function App() {
   const router = createBrowserRouter([
@@ -18,7 +19,7 @@ function App() {
     },
     {
       path: "/Testes",
-      element: <Teste/>
+      element: <FormComponent/>
     }
 
     

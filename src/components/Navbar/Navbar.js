@@ -13,26 +13,7 @@ function Navbar (){
 
     useEffect(() => {
  
-       const cleaner = async () => {
- 
-         
- 
- 
-         const value = await AsyncStorage.getItem('@User') ?? false;
-         
-         console.log(typeof(value))
- 
-         
-         
-         if (!value) {
-           // value previously stored
-           Navigate("/websk/:data")
-         }
-
-         
-       } 
-       
-       cleaner()
+      
     })
  
     
@@ -67,7 +48,7 @@ function Navbar (){
     return(
         <div>
             <div className="navbar" style={navbarStyle}>
-                <div style={imgstyle}/>
+                <div style={imgstyle} />
                 
                 <NavButton link="landing" nome="PAGINA INICIAL"></NavButton>
                 {/* <NavButton type="dropdown" nome="SETORES"></NavButton> */}
