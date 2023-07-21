@@ -5,6 +5,8 @@ import FormScreen from './screens/FormScreen';
 import Landing from './screens/Landingpage';
 import Teste from './components/Test';
 import FormComponent from './components/Formulario';
+import Login from './screens/Login';
+import Registrar from './screens/Registrar';
 
 function App() {
   const router = createBrowserRouter([
@@ -20,6 +22,14 @@ function App() {
     {
       path: "/Testes",
       element: <FormComponent/>
+    },
+    {
+      path: "/Login",
+      element: <Login/>
+    },
+    {
+      path: "/Signup",
+      elemente: <Registrar/>
     }
 
     

@@ -4,18 +4,19 @@ import { Switch, Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send'
 import AddIcon from '@mui/icons-material/Add';
 
-const FormComponent = () => {
+const FormComponent = (Props) => {
   const { handleSubmit, control, reset } = useForm();
 
   const onSubmit = (data) => {
     // Handle form submission here, e.g., send data to the server or perform other actions
-    console.log(data);
+    console.log(data, Props.par);
     // Reset the form after submission (optional)
     reset();
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+    
       <div>
         <label>Usuário:</label>
         <Controller
