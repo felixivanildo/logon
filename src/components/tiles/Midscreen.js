@@ -18,7 +18,7 @@ const MidscTile = (Props) => {
 
   return (
     <div
-      className={`component ${isFocused ? 'focused' : ''}`}
+      className={`tile ${isFocused ? 'focused' : ''}`}
       onFocus={handleFocus}
       onBlur={handleBlur}
       onClick={()=>{Navigate(`/${Props.link}`)}}

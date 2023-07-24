@@ -51,7 +51,7 @@ function PatternFrom(elements) {
               }`}
             >
               <div className="contents" style={{padding: "0px"}}>
-                <div style={{marginTop: "0.1vh", marginBottom: "0.1vh", width: "80%"}}>
+                <div className="contentsIntern" style={{marginTop: "0.1vh", marginBottom: "0.1vh", width: "80%"}}>
                 {Props.content ?? ""}
                 </div>
               </div>

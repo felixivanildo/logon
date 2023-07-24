@@ -1,12 +1,16 @@
-.component {
+.tile {
     background-color: black;
-    width: 80vw;
+    /* width: 80vw; */
     height: 20vh;
-    margin: 10% 10% 20%;
+    /* margin: 10% 10% 20%; */
+    margin: 2%;
+    /* margin-left: 5%; */
     opacity: 0.8;
     transition: opacity 0.3s, margin-top 0.3s;
     border-radius: 50px;
-    position: fixed;
+    /* position: absolute; */
+    left: "10%";
+    width: "80%";
    
   }
 
@@ -34,13 +38,13 @@
     font-weight: bolder;
   }
   
-  .component.focused {
+  .tile.focused {
     opacity: 1;
   }
   
-  .component:hover {
+  .tile:hover {
     opacity: 1;
-    margin-top: 8%;
+    margin-top: 1%;
   }
   
 
@@ -50,4 +54,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+  }
+
+  .defaultTimesRoman{
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+               1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+    font-size: xx-large;
+    font-weight: bolder;
   }

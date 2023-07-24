@@ -1,19 +1,58 @@
-import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import React, { useState, useEffect } from 'react';
+import { useForm, Controller, set, SetFieldValue } from 'react-hook-form';
 import { Switch, Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send'
 import AddIcon from '@mui/icons-material/Add';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ProfissaoForm = () => {
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm();
+
+
+  const [user, setUser] = useState()
+  const [teste, setTeste] = useState({
+    // Your initial state properties here
+  });
+
+  useEffect(() => {
+    const getType = async () => {
+      setUser(JSON.parse(await AsyncStorage.getItem('@usuario')) ?? {message: false})
+    }
+
+    getType();
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      getInfos();
+    }
+  }, [user]);
+
+  const { handleSubmit, control, reset, setValue, errors } = useForm();
+
+  const getInfos = async () => {
+    try {
+      const response = await axios.put("http://10.254.4.132:3005/api/getinfo", { usuario: user.usuario, cubo: "profissao" });
+      const information = response.data;
+      setTeste(information);
+
+      for (const key in information) {
+        const value = information[key];
+        if (key === "data_nasc") {
+          setValue(key, value.substring(0, 10));
+        } else {
+          setValue(key, value);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const onSubmit = (data) => {
-    // Handle form submission here (e.g., send data to the server)
-    console.log(data);
+    // console.log(data, Props.par);
+    // console.log(teste);
+    reset();
   };
 
   return (
@@ -26,7 +65,7 @@ const ProfissaoForm = () => {
           rules={{ required: 'This field is required' }}
           render={({ field }) => <input {...field} />}
         />
-        {errors.profissao && <span>{errors.profissao.message}</span>}
+        {/* {errors.profissao && <span></span>} */}
       </div>
 
       <div>
@@ -37,7 +76,7 @@ const ProfissaoForm = () => {
           rules={{ required: 'This field is required' }}
           render={({ field }) => <input {...field} />}
         />
-        {errors.local_trabalho && <span>{errors.local_trabalho.message}</span>}
+        {/* {errors.local_trabalho && <span></span>} */}
       </div>
 
       <div>
@@ -48,29 +87,29 @@ const ProfissaoForm = () => {
           rules={{ required: 'This field is required' }}
           render={({ field }) => <input {...field} />}
         />
-        {errors.local_trabalho && <span>{errors.local_trabalho.message}</span>}
+        {/* {errors.local_trabalho && <span></span>} */}
       </div>
 
       <div>
         <label>Endereço:</label>
         <Controller
-          name="endereco_trabalho"
+          name="endereco"
           control={control}
           rules={{ required: 'This field is required' }}
           render={({ field }) => <input {...field} />}
         />
-        {errors.local_trabalho && <span>{errors.local_trabalho.message}</span>}
+        {/* {errors.local_trabalho && <span></span>} */}
       </div>
 
       <div>
         <label>Fone:</label>
         <Controller
-          name="fone_trabalho"
+          name="fone"
           control={control}
           rules={{ required: 'This field is required' }}
           render={({ field }) => <input {...field} />}
         />
-        {errors.local_trabalho && <span>{errors.local_trabalho.message}</span>}
+        {/* {errors.local_trabalho && <span></span>} */}
       </div>
 
       <div>
@@ -79,15 +118,15 @@ const ProfissaoForm = () => {
           name="batizado"
           control={control}
           defaultValue={false}
-          render={({ field }) => <Switch size='small' type="checkbox" {...field} />}
+          render={({ field }) => teste.conducao_propria !== false ? <Switch size='small' checked type="checkbox" {...field} /> : <Switch size='small'  type="checkbox" {...field}></Switch>}
         />
       </div>
 
       {/* ... Add other input fields as needed */}
 
       <div style={{display: "flex", justifyContent: "flex-end"}}>
-      <Button variant="contained" endIcon={<AddIcon />} >CARREGAR SALVOS</Button>
-      <Button variant="contained" color="secondary" endIcon={<SendIcon />} type="submit">SALVAR</Button>
+      <Button size='small' variant="contained" endIcon={<AddIcon />} >CARREGAR</Button>
+      <Button size='small' variant="contained" color="secondary" endIcon={<SendIcon />} type="submit" style={{marginLeft: "15px"}} >SALVAR</Button>
       
       </div>
     </form>

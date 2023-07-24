@@ -1,11 +1,49 @@
 .background{
-    background-image: url('../img/SAOVICENTE.jpeg');
+    background-image: url('../img/SAOVICENTE.jpeg'), linear-gradient(#eb01a5, #d13531);
     background-color: beige;
     width: 100vw;
     height: 100vh;
     background-size: cover;
     opacity: 75%;
-    
+    /* background: rgb(252,252,252); */
+    /* background: linear-gradient(354deg, rgba(252,252,252,0) 18%, rgba(251,251,251,1) 56%, rgba(0,212,255,1) 100%); */
 
 }
 
+.MediumCLM{
+    margin-top: 10%;
+    width: 80%;
+    height: 92.2%;
+    background-color: white;
+    /* margin-left: 10%; */
+    position: absolute;
+    left: 10%;
+    overflow: scroll;
+    -webkit-box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
+-moz-box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
+box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
+}
+
+.img{
+    background-position: center;
+    background-image: url("../img/47774.png");
+    background-size: contain;background-repeat: no-repeat;
+    width: 20%;
+    min-height: 18%;
+}
+
+@media screen and (max-width: 800px) {
+    .MediumCLM{
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        /* margin-left: 10%; */
+        position: absolute;
+        left: 10%;
+        overflow: scroll;
+    }
+
+   
+    
+    
+  }

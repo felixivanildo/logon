@@ -24,20 +24,10 @@ const leavehandler = () => {
 
 
     return (
-        <div>
-            {Props.type === "dropdown" && <div classname="navbutton" onMouseEnter={enterhandler} onMouseLeave={leavehandler} style={{
-            background: `${color[0].background}`,
-            display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px'
-        }}><p style={{
-            marginLeft: '20px', color: `${color[1].texto}`, textDecoration: 'none', fontSize: "large", fontWeight: 'bold',
-            display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0px'
-        }}>{Props.nome}</p></div>}
+        
 
-
-
-        {Props.type !== "dropdown" && 
-        <div classname="navbutton" onMouseEnter={enterhandler} onMouseLeave={leavehandler} style={{
-            background: `${color[0].background}`,
+        <div onMouseEnter={enterhandler} onMouseLeave={leavehandler} style={{
+            // background: `${color[0].background}`, border: "none",
             display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '10px'
         }} onClick={() => { Navigate(`/${Props.link}`) }}>
 
@@ -46,10 +36,9 @@ const leavehandler = () => {
                 display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '0px'
             }}>{Props.nome}</p>
 
-            {/* {Props.child} */}
+            {Props.child}
         </div>
-        }
-        </div>
+
     )
 }
 

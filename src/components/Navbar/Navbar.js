@@ -15,11 +15,13 @@ function Navbar (){
  
       
     })
- 
-    
+
+
 
     const navbarStyle = {
-        backgroundColor: '#0093DD',
+        // backgroundColor: '#0093DD',
+        background: 'rgb(252,252,252)' ,
+background: 'linear-gradient(357deg, rgba(252,252,252,0) 13%, rgba(251,251,251,0) 21%, rgba(0,212,255,1) 100%)',
         paddingTop: '0px',
         top: '0px',
         left: '0px',
@@ -29,6 +31,7 @@ function Navbar (){
         height: '75px',
         display: 'flex',
         alignItems: 'center',
+        // opacity: '60%'
         
 
       };
@@ -52,12 +55,12 @@ function Navbar (){
                 
                 <NavButton link="landing" nome="PAGINA INICIAL"></NavButton>
                 {/* <NavButton type="dropdown" nome="SETORES"></NavButton> */}
-                <NavButton link="MEUS CHAMADOS" nome="MINHA PAGINA"></NavButton>
+                <NavButton link="MinhaPagina" nome="MINHA PAGINA"></NavButton>
                 <NavButton link="" nome="SAIR"></NavButton>
                 
                              
                 
-               
+{/*                
                     <input  className="searchinput" style={{marginLeft: "41%", width: "280px", height: "4px", borderRadius: "10px", border: "10px", backgroundColor:'#005CA1', borderColor: 'white',
                                     backgroundImage:  `url(${search})` ,
                                     backgroundRepeat:' no-repeat',
@@ -72,7 +75,7 @@ function Navbar (){
                             
                           
 
-                    </input>
+                    </input> */}
                 
             </div>
         </div>

@@ -4,6 +4,7 @@ import PatternFrom from "./PatternForm/PatternForm";
 import { useForm } from "react-hook-form"
 
 function Teste() {
+    
     const [formtype, setFormtype] = useState([{}]);
     const { register, handleSubmit } = useForm({
         shouldUseNativeValidation: true,

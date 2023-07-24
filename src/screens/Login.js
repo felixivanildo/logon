@@ -12,6 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigate } from 'react-router-dom/dist';
 
 function Copyright(props) {
   return (
@@ -31,13 +34,32 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
+  const Navigate = useNavigate ()
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
+    
+    await axios.put("http://10.254.4.132:3005/api/login", {
+      email: data.get('email'),
+      password: data.get('password'),
+    }).then(async (e)=>{
+      if(e.data.message === "Nenhum usuario"){
+        alert(e.data.message )
+      }
+      if(e.data.message === "Usuario encontrado"){
+        await AsyncStorage.setItem('@usuario', JSON.stringify(e.data.user))
+          console.log(e.data.user)
+          // Navigate('/')
+      }
+      
+      
+    }
+
+    )
   };
 
   return (

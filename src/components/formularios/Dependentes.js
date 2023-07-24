@@ -54,9 +54,9 @@ class Dependentes extends React.Component {
             </div>
           ))}
           <div className="button-section">
-          <Button variant="contained" endIcon={<AddIcon />} className="button add" type="button" onClick={() => this.addFormFields()}>Adicionar Dependente</Button>
-          <Button variant="contained" endIcon={<AddIcon />} >CARREGAR SALVOS</Button>
-            <Button variant="contained" color="secondary" endIcon={<SendIcon />} type="submit">SALVAR</Button>
+          <Button size='small' variant="contained" endIcon={<AddIcon />} className="button add" type="button" onClick={() => this.addFormFields()}>Adicionar Dependente</Button>
+          <Button size='small' variant="contained" endIcon={<AddIcon />} style={{marginLeft: "15px"}} >CARREGAR</Button>
+            <Button size='small'variant="contained" color="secondary" endIcon={<SendIcon />} type="submit" style={{marginLeft: "15px"}} >SALVAR</Button>
           </div>
       </form>
     );

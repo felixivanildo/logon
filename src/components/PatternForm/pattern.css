@@ -9,6 +9,8 @@ body {
   font-family: 'Lato';
 }
 
+
+
 h1 {
   font-size: 2em;
   padding: 2em;
@@ -43,7 +45,8 @@ h1 {
 }
 
 .container {
-  max-width: 960px;  
+  max-width: 1200px; 
+  min-width: 900px; 
   margin: 0 auto;
   /* padding: 2em 0 2em 0; */
 }
@@ -88,7 +91,7 @@ h1 {
     transition: max-height 0.5s;
   }
 }
-@media screen and (min-width: 48em) {
+@media screen and (min-width: 800px) {
   .accordionItemCollapsed {
     max-height: 40em;
     -moz-transition: max-height 0.5s;
@@ -96,6 +99,24 @@ h1 {
     -webkit-transition: max-height 0.5s;
     transition: max-height 0.5s;
   }
+  
+  
+}
+
+@media screen and (max-width: 800px) {
+  .container{
+    max-width: 300px;
+    min-width: 100px;
+  }
+
+  .contents{
+    margin: 0%;
+
+  }
+  .contentsIntern{
+    max-width: 500px;
+}
+  
 }
 
 .accordionItem{
@@ -215,7 +236,7 @@ h1 {
   display: flex;
   padding: 0px;
   align-items: center;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   /* width: 100%; */
 }
 
