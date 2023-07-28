@@ -1,14 +1,12 @@
-.background{
-    background-image: url('../img/SAOVICENTE.jpeg'), linear-gradient(#eb01a5, #d13531);
+.background {
+    background: linear-gradient(to bottom, transparent 80%, rgba(252, 252, 252, 255) 100%), url('../img/SAOVICENTE.jpeg');
     background-color: beige;
     width: 100vw;
     height: 100vh;
     background-size: cover;
-    opacity: 75%;
-    /* background: rgb(252,252,252); */
-    /* background: linear-gradient(354deg, rgba(252,252,252,0) 18%, rgba(251,251,251,1) 56%, rgba(0,212,255,1) 100%); */
-
 }
+
+
 
 .MediumCLM{
     margin-top: 10%;
@@ -47,3 +45,12 @@ box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
     
     
   }
+
+  .child{
+    display: inline-block;
+    /* background: blue; */
+    margin: 10px 0 0 2%;
+    flex-grow: 1;
+    height: 100px;
+    width: calc(100% * (1/5) - 10px - 1px);
+}

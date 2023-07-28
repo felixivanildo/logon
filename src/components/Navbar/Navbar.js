@@ -1,85 +1,187 @@
-import React from "react";
-import Logo from "../../img/Cloud-Logo-by-Friendesign-Acongraphic-20.jpg"
-import search from "../../img/search.png"
-import NavButton from "../buttons/NavbarBt";
-import "./Layout.css"
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as React from 'react';
+import { styled, useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import AddIcon from '@mui/icons-material/Add';
+import MuiDrawer from '@mui/material/Drawer';
+import MuiAppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import CssBaseline from '@mui/material/CssBaseline';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
 
-function Navbar (){
+const drawerWidth = 240;
+
+const openedMixin = (theme) => ({
+  width: drawerWidth,
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.enteringScreen,
+  }),
+  overflowX: 'hidden',
+});
+
+const closedMixin = (theme) => ({
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  overflowX: 'hidden',
+  width: `calc(${theme.spacing(7)} + 1px)`,
+  [theme.breakpoints.up('sm')]: {
+    width: `calc(${theme.spacing(8)} + 1px)`,
+  },
+});
+
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+}));
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  zIndex: theme.zIndex.drawer + 1,
+  transition: theme.transitions.create(['width', 'margin'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  }),
+}));
+
+const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
+  ({ theme, open }) => ({
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    boxSizing: 'border-box',
+    ...(open && {
+      ...openedMixin(theme),
+      '& .MuiDrawer-paper': openedMixin(theme),
+    }),
+    ...(!open && {
+      ...closedMixin(theme),
+      '& .MuiDrawer-paper': closedMixin(theme),
+    }),
+  }),
+);
+
+export default function App() {
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
   
-    const Navigate = useNavigate ()
 
-    useEffect(() => {
- 
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar position="fixed" open={open}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{
+              marginRight: 5,
+              ...(open && { display: 'none' }),
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap component="div">
+            Mini variant drawer
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer variant="permanent" open={open}>
+        <DrawerHeader>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List>
+          {['Inbox', 'Starred', 'Adicionar Movimento', 'Drafts'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                  {index === 2 ? <AddIcon></AddIcon> : <MailIcon/>} 
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        <Divider />
+        <List>
+          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
       
-    })
-
-
-
-    const navbarStyle = {
-        // backgroundColor: '#0093DD',
-        background: 'rgb(252,252,252)' ,
-background: 'linear-gradient(357deg, rgba(252,252,252,0) 13%, rgba(251,251,251,0) 21%, rgba(0,212,255,1) 100%)',
-        paddingTop: '0px',
-        top: '0px',
-        left: '0px',
-        right: '0px',
-        position: 'relative',
-        zIndex: '50',
-        height: '75px',
-        display: 'flex',
-        alignItems: 'center',
-        // opacity: '60%'
-        
-
-      };
-
-      const imgstyle = {
-      backgroundImage: `url(${Logo})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: '70px',
-      backgroundPosition: 'center center',
-      objectFit: 'cover',
-      backgroundColor: "white", 
-      width: "75px",
-      height: "75px",
-      marginLeft: "10%"
-      }
-
-    return(
-        <div>
-            <div className="navbar" style={navbarStyle}>
-                <div style={imgstyle} />
-                
-                <NavButton link="landing" nome="PAGINA INICIAL"></NavButton>
-                {/* <NavButton type="dropdown" nome="SETORES"></NavButton> */}
-                <NavButton link="MinhaPagina" nome="MINHA PAGINA"></NavButton>
-                <NavButton link="" nome="SAIR"></NavButton>
-                
-                             
-                
-{/*                
-                    <input  className="searchinput" style={{marginLeft: "41%", width: "280px", height: "4px", borderRadius: "10px", border: "10px", backgroundColor:'#005CA1', borderColor: 'white',
-                                    backgroundImage:  `url(${search})` ,
-                                    backgroundRepeat:' no-repeat',
-                                    backgroundSize: '7%',
-                                    backgroundPosition: '10px',
-                                    padding: '20px'
-                                   
-                                }}
-                                    
-                            onFocus={(data)=>{data.target.style.backgroundColor = "white"; data.target.style.backgroundImage = ""}} 
-                            onBlur={(data)=>{data.target.style.backgroundColor = "#005CA1"; data.target.style.backgroundImage = `url(${search})`}}>
-                            
-                          
-
-                    </input> */}
-                
-            </div>
-        </div>
-    )
+    </Box>
+  );
 }
-
-export default Navbar

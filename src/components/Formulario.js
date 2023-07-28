@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useForm, Controller, set, SetFieldValue } from 'react-hook-form';
 import { Switch, Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send'
+
+
 import AddIcon from '@mui/icons-material/Add';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -47,8 +49,8 @@ const FormComponent = (Props) => {
     }
   }
 
-  const onSubmit = (data) => {
-    console.log(data, Props.par);
+  const onSubmit = async (data) => {
+    await axios.post("http://10.254.4.132:3005/api/fill", {data: data, sexo: Props.par});
     console.log(teste);
     reset();
   };
@@ -57,62 +59,58 @@ const FormComponent = (Props) => {
     <form   onSubmit={handleSubmit(onSubmit)}>
     
     <div>
-        <label>Usuário:</label>
         <Controller
           name="usuario"
           control={control}
-          defaultValue={teste.usuario }
-          render={({ field }) => <input type="number" {...field} />}
+          // defaultValue={teste.usuario }
+          render={({ field }) =><TextField id="outlined-basic" label="Outlined" size='small' variant="outlined"{...field} />}
         />
+      
       </div>
 
       <div>
-        <label>Nome:</label>
         <Controller
           name="nome"
           control={control}
           // value={teste.nome}
-          render={({ field }) => <input type="text" value={teste.nome} {...field}/>}
+          render={({ field }) => <TextField id="outlined-basic" label="Outlined" size='small' variant="outlined"{...field} />}
         />
       </div>
 
       <div>
-        <label>Nome Usual:</label>
         <Controller
           name="nome_usual"
           control={control}
           defaultValue={teste.nome_usual }
-          render={({ field }) => <input type="text" {...field} />}
+          render={({ field }) => <TextField id="outlined-basic" label="Outlined" size='small' variant="outlined"{...field} />}
         />
       </div>
 
       <div>
-        <label>Data de Nascimento:</label>
         <Controller
           name="data_nasc"
           control={control}
           defaultValue={teste.data_nasc }
-          render={({ field }) => <input type="date" {...field} />}
+          render={({ field }) => <input type='date' {...field}/>}
         />
       </div>
 
       <div>
-        <label>Telefone:</label>
         <Controller
           name="fone"
           control={control}
           defaultValue={teste.fone }
-          render={({ field }) => <input type="text" {...field} />}
+          render={({ field }) => <TextField id="outlined-basic" label="Outlined" size='small' variant="outlined"{...field} />}
         />
       </div>
 
       <div>
-        <label>Religião:</label>
+      
         <Controller
           name="religiao"
           control={control}
           defaultValue={teste.religiao }
-          render={({ field }) => <input type="text" {...field} />}
+          render={({ field }) => <TextField id="outlined-basic" label="Outlined" size='small' variant="outlined"{...field} />}
         />
       </div>
 
@@ -147,12 +145,12 @@ const FormComponent = (Props) => {
       </div>
 
       <div>
-        <label>Grau de Instrução:</label>
+       
         <Controller
           name="grau_instrucao"
           control={control}
           defaultValue={teste.grau_instrucao }
-          render={({ field }) => <input type="text" {...field} />}
+          render={({ field }) => <TextField id="outlined-basic" label="Outlined" size='small' variant="outlined"{...field} />}
         />
       </div>
 

@@ -36,17 +36,20 @@ function Profile() {
     <div className="background">
       <Navbar></Navbar>
       <div className="MediumCLM">
-        <div style={{ alignItems: "flex-start", marginLeft: "10%", display: "flex", flexDirection: "column", width: "80%", height: "100%" }}>
-          <div style={{ marginTop: "5%", alignItems: "center", marginLeft: "10%", display: "flex", flexDirection: "column", width: "80%", height: "100%" }}>
+        <div style={{ alignItems: "flex-start", marginLeft: "5%", display: "flex", flexDirection: "row", width: "80%", height: "100%", marginTop: "5%" }}>
+          <div style={{ marginTop: "0%", alignItems: "center", marginLeft: "10%", display: "flex", flexDirection: "column", width: "100%", height: "100%" }}>
             <div className="img"></div>
             <div className="nome"></div>
             <p> {information.nome}</p>
             <div className="endereço">{information.endereco}</div>
             <Divisionbar/>
+            
+          </div>
+          <div style={{marginLeft: "5%"}}>
             <PatternFrom elements={elements}> </PatternFrom>
             <PatternFrom elements={profissaoele}> </PatternFrom> 
              {/* <Dependentes></Dependentes> */}
-          </div>
+             </div>
         </div>
       </div>
     </div>
