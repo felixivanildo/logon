@@ -8,6 +8,8 @@ import FormComponent from './components/Formulario';
 import Login from './screens/Login';
 import Registrar from './screens/Registrar';
 import Profile from './screens/Profile';
+import Pessoas from './components/formularios/Pessoas';
+import CdPessoa from './screens/CdPessoas';
 
 function App() {
   const router = createBrowserRouter([
@@ -17,12 +19,16 @@ function App() {
        
     },
     {
-      path: "/Landing",
+      path: "/Dependentes",
+      element: <FormScreen/>
+    },
+    {
+      path: "/Movimentos",
       element: <Landing/>
     },
     {
-      path: "/Testes",
-      element: <FormComponent/>
+      path: "/Pessoas",
+      element: <CdPessoa/>
     },
     {
       path: "/Login",

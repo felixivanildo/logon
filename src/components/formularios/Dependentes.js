@@ -33,29 +33,35 @@ class Dependentes extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    alert(JSON.stringify(this.state.formValues));
+    console.log(JSON.stringify(this.state.formValues));
   }
 
   render() {
 
     return (
-        <form  onSubmit={this.handleSubmit}>
+        <form  onSubmit={this.handleSubmit} style={{display: "flex", flexWrap: "wrap"}}>
           {this.state.formValues.map((element, index) => (
-            <div className="form-inline" key={index}>
-              <label>Name</label>
-              <input type="text" name="name" value={element.name || ""} onChange={e => this.handleChange(index, e)} />
-              <label>Email</label>
-              <input type="text" name="email" value={element.email || ""} onChange={e => this.handleChange(index, e)} />
+            <div className="chidld" key={index} style={{display: "box", width: "100%"}}>
+   
+              <TextField id="outlined-basic" label="Nome" size='small' variant="outlined" onChange={e => this.handleChange(index, e)} />
+              <TextField id="outlined-basic" label="Data de nascimento" size='small' variant="outlined" onChange={e => this.handleChange(index, e)} />
+              <div>
+              <TextField id="outlined-basic" label="Pai" size='small' variant="outlined" onChange={e => this.handleChange(index, e)} />
+              
+              </div>
+              <TextField id="outlined-basic" label="Mãe" size='small' variant="outlined" onChange={e => this.handleChange(index, e)} />
               {
                 index ? 
-                  <button type="button"  className="button remove" onClick={() => this.removeFormFields(index)}>Remove</button> 
+                  <Button size='small' variant="contained" type="button" className="button remove" onClick={() => this.removeFormFields(index)}>Remover</Button> 
                 : null
               }
             </div>
+            
           ))}
-          <div className="button-section">
+          
+          <div className="button-section" style={{display: "flex", width: "100%", justifyContent: "flex-end", marginRight: "50px"}}>
           <Button size='small' variant="contained" endIcon={<AddIcon />} className="button add" type="button" onClick={() => this.addFormFields()}>Adicionar Dependente</Button>
-          <Button size='small' variant="contained" endIcon={<AddIcon />} style={{marginLeft: "15px"}} >CARREGAR</Button>
+          {/* <Button size='small' variant="contained" endIcon={<AddIcon />} style={{marginLeft: "15px"}} >CARREGAR</Button> */}
             <Button size='small'variant="contained" color="secondary" endIcon={<SendIcon />} type="submit" style={{marginLeft: "15px"}} >SALVAR</Button>
           </div>
       </form>

@@ -15,7 +15,7 @@ const Movimento = (Props) => {
 
   const onSubmit = async (data) => {
     console.log(data)
-    await axios.post("http://10.254.4.132:3005/api/movimento", data).then((e)=> alert(e));
+    await axios.post("http://10.254.4.132:3005/api/movimento", data).then((e)=> alert(e.message));
     
     reset();
   };
@@ -48,9 +48,10 @@ const Movimento = (Props) => {
           control={control}
             defaultValue=""
           render={({ field }) => <TextField
-          id="outlined-multiline-flexible"
+          id="outlined-basic"
           label="Descricao"
           multiline
+          size='small'
           maxRows={4} {...field} />}
         />
       </div>
@@ -67,7 +68,7 @@ const Movimento = (Props) => {
     
 
       <div style={{display: "flex", justifyContent: "flex-end", width: "90%"}}>
-      <Button size="small" variant="contained" endIcon={<AddIcon />} >CARREGAR</Button>
+      {/* <Button size="small" variant="contained" endIcon={<AddIcon />} >CARREGAR</Button> */}
       <Button size="small" variant="contained" color="secondary" endIcon={<SendIcon />} type="submit" style={{marginLeft: "15px"}}  >SALVAR</Button>
       
       </div>

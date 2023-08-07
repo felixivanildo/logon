@@ -2,16 +2,15 @@ import React from "react";
 import "./Landing.css"
 import Navbar from "../components/Navbar/Navbar";
 import MidscTile from "../components/menus/Midscreen";
-import Divisionbar from "../components/assets/Divisinbar";
-import Movimento from "../components/formularios/Movimento";
+import Pessoas from "../components/formularios/Pessoas";
 
-function Landing () {
+function CdPessoa () {
  return(
     <div className="background">
         <Navbar/>
         <div>
 
-            <MidscTile content={<Movimento/>} title="Cadastrar Movimento"></MidscTile>
+            <MidscTile content={<Pessoas/>} title="Cadastrar Pessoa"></MidscTile>
         </div>
         
     </div>
@@ -19,4 +18,4 @@ function Landing () {
 
 }
 
-export default Landing
+export default CdPessoa

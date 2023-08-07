@@ -19,6 +19,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import BabyChangingStationIcon from '@mui/icons-material/BabyChangingStation';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import { MailLock } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -99,6 +103,8 @@ export default function App() {
     setOpen(false);
   };
 
+  const Navigate = useNavigate ()
+
   
 
   return (
@@ -119,7 +125,7 @@ export default function App() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Logon
           </Typography>
         </Toolbar>
       </AppBar>
@@ -131,7 +137,7 @@ export default function App() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Adicionar Movimento', 'Drafts'].map((text, index) => (
+          {['Inbox', 'Adicionar Dependente', 'Adicionar Movimento', 'Adicionar Pessoas'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={{
@@ -139,6 +145,21 @@ export default function App() {
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
+
+                onClick={()=>{
+                  console.log(index);
+
+                  if(index === 2){
+                  Navigate("/Movimentos")
+                };
+                 if (index === 1){
+                  Navigate('/Dependentes')
+                };
+                if (index === 3){
+                  Navigate('/Pessoas')
+                };
+              
+              }}
               >
                 <ListItemIcon
                   sx={{
@@ -146,9 +167,16 @@ export default function App() {
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
                   }}
+
+                 
                 >
                   {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
-                  {index === 2 ? <AddIcon></AddIcon> : <MailIcon/>} 
+                  {index === 0 ?  <MailIcon/>: ""} 
+                  {index === 2 ? <AddIcon></AddIcon> : ""} 
+                  {index === 1? <BabyChangingStationIcon></BabyChangingStationIcon>: ""}
+                  {index === 3? <EmojiPeopleIcon/>: ""}
+
+                  
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>

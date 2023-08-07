@@ -1,5 +1,5 @@
 .background {
-    background: linear-gradient(to bottom, transparent 80%, rgba(252, 252, 252, 255) 100%), url('../img/SAOVICENTE.jpeg');
+    /* background: linear-gradient(to bottom, transparent 80%, rgba(252, 252, 252, 255) 100%), url('../img/SAOVICENTE.jpeg'); */
     background-color: beige;
     width: 100vw;
     height: 100vh;
@@ -53,4 +53,11 @@ box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
     flex-grow: 1;
     height: 100px;
     width: calc(100% * (1/5) - 10px - 1px);
+}
+
+.midscreenMenu{
+    -webkit-box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
+    box-shadow: -9px 5px 41px -4px rgba(0,0,0,0.75);
+    
 }
